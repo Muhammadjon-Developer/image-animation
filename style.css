@@ -1,0 +1,156 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #000;
+}
+
+.cards-container {
+  position: relative;
+  width: 1900px;
+  /* 10 kaarten * 190px */
+  height: 608px;
+  /* Hoogte van de afbeeldingen */
+  overflow: hidden;
+}
+
+.card {
+  position: absolute;
+  width: 190px;
+  /* Breedte van elke kaart */
+  height: 608px;
+  /* Hoogte van elke kaart */
+  overflow: hidden;
+  animation-duration: 0.4s;
+  /* Snelheid van animatie */
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  left: -250px;
+  /* Start buiten beeld */
+
+  transition: box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: scale(1.05) rotate(3deg);
+  z-index: 10;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Animatie: schuif naar exacte pixelpositie */
+@keyframes slide {
+  from {
+    left: -250px;
+  }
+
+  to {
+    left: var(--end-position);
+  }
+}
+
+.card {
+  animation-name: slide;
+}
+
+/* Eindposities (n * 190px) */
+#card1 {
+  --end-position: 0px;
+  animation-delay: 0s;
+}
+
+#card2 {
+  --end-position: 190px;
+  animation-delay: 0.2s;
+}
+
+#card3 {
+  --end-position: 380px;
+  animation-delay: 0.4s;
+}
+
+#card4 {
+  --end-position: 570px;
+  animation-delay: 0.6s;
+}
+
+#card5 {
+  --end-position: 760px;
+  animation-delay: 0.8s;
+}
+
+#card6 {
+  --end-position: 950px;
+  animation-delay: 1s;
+}
+
+#card7 {
+  --end-position: 1140px;
+  animation-delay: 1.2s;
+}
+
+#card8 {
+  --end-position: 1330px;
+  animation-delay: 1.4s;
+}
+
+#card9 {
+  --end-position: 1520px;
+  animation-delay: 1.6s;
+}
+
+#card10 {
+  --end-position: 1710px;
+  animation-delay: 1.8s;
+}
+
+/* Standaard styling blijft intact */
+
+/* Responsieve weergave voor kleinere schermen */
+@media (max-width: 1920px) {
+  .cards-container {
+    transform: scale(0.9);
+    /* Schaal iets kleiner */
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 1600px) {
+  .cards-container {
+    transform: scale(0.8);
+    /* Schaal nog kleiner */
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 1280px) {
+  .cards-container {
+    transform: scale(0.7);
+    /* Nog verder schalen */
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cards-container {
+    transform: scale(0.6);
+    /* Kleiner formaat */
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    transform: scale(0.5);
+    /* Voor mobiele schermen */
+    transform-origin: top left;
+  }
+}
